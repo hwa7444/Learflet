@@ -130,9 +130,22 @@ conn.close()
 conn = cx_Oracle.connect('beng/1234@localhost:1521/xe')
 cur = conn.cursor()
 
-#잠시 값 넣어두기
-user_id = 'a'
+#####################잠시 값 넣어두기  -> 여긴 통신해서 id값 받아와야함
+user_id = 'zzz'
 cur.execute('SELECT * FROM analdata where id=(:k)',k=user_id)
+
+personalData=cur.fetchall()
+
+userAge = personalData[0][1]
+userGender = personalData[0][2]
+userint1 = personalData[0][3]
+userint2 = personalData[0][4]
+userInt3 = personalData[0][5]
+userC1 = personalData[0][6]
+userC2 = personalData[0][7]
+userC3 = personalData[0][8]
+print(userAge, userGender, userInt1, userInt2, userInt3, userC1, userC2, userC3)
+
 
 mem_test=cur.fetchall()
 print(mem_test)
@@ -144,7 +157,7 @@ cur.close()
 conn.close()
 
 
-pre, scorelist = bf.predict("W earlyTwnty 5 5 4")
+pre, scorelist = bf.predict("'%s','%s','%s','%s','%s','%s','%s','%s'" %(userAge, userGender, userInt1, userInt2, userInt3, userC1, userC2, userC3))
 print("결과 =", pre)
 print(scorelist)
 
