@@ -29,13 +29,29 @@ public class CouponCon extends HttpServlet {
 		   String returns = "";
 		   String type = request.getParameter("type");
 		   String vision = request.getParameter("vision_write");
+		   String id = request.getParameter("id");
+		   String age = request.getParameter("age");
+		   String gender = request.getParameter("gender");
+		   String interest1 = request.getParameter("interest1");
+		   String interest2 = request.getParameter("interest2");
+		   String interest3 = request.getParameter("interest3");
+		   
+		   String b = request.getParameter("b");
+		   //b = URLDecoder.decode(b,"utf-8");
+		   
 		   response.setContentType("text/html; charset=utf-8");
 		   PrintWriter out = response.getWriter();
-		   
+		   System.out.println("id"+id);
+		   System.out.println("age"+age);
+		   System.out.println("gender"+gender);
+		   System.out.println("관심사1"+interest1);
+		   System.out.println("관심사2"+interest2);
+		   System.out.println("관심사3"+interest3);
+
 		   if (type == null) {
 			      return;
 			   }else if (type.equals("vision_write")) {
-			      System.out.println("값을받았습니다."+vision);
+			    //  System.out.println("값을받았습니다."+vision);
 			      out.println("값을 돌려줍니다"+vision);
 			      
 			    }
