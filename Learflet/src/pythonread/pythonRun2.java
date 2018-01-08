@@ -14,7 +14,7 @@ public class pythonRun2 {
       StringBuffer cmd = new StringBuffer();
       StringBuffer pout = new StringBuffer();
       
-      cmd.append("C:\\Users\\Byungwoo\\AppData\\Local\\Programs\\Python\\Python35\\python.exe D:\\zz.py");
+      cmd.append("python C:\\zz.py");
       cmd.append(" ");
       cmd.append(id);
       
