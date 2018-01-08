@@ -49,18 +49,19 @@ public class AnalDAO {
 			conn.close();
 	}
 
-	public int insertData(String id, String age, String gender, int interest1, int interest2, int interest3)
+	public int insertData(String id, String age, String gender, String interest1, String interest2, String interest3)
 			throws Exception {
 		getConn();
-		pst = conn.prepareStatement("insert into analdata values(?,?,?,?,?,?,?,?)");
+		pst = conn.prepareStatement("insert into analdata values(?,?,?,?,?,?,?,?,?)");
 		pst.setString(1, id);
 		pst.setString(2, age);
 		pst.setString(3, gender);
-		pst.setInt(4, interest1);
-		pst.setInt(5, interest2);
-		pst.setInt(6, interest3);
-		pst.setString(7, "");
-		pst.setString(8, "");
+		pst.setString(4, interest1);
+		pst.setString(5, interest2);
+		pst.setString(6, interest3);
+		pst.setString(7, "None");
+		pst.setString(8, "None");
+		pst.setString(9, "None");
 
 		cnt = pst.executeUpdate();
 		close();
