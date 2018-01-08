@@ -15,9 +15,9 @@ public class AnalDAO {
 	private PreparedStatement pst;
 	private int cnt;
 
-	private static couponDAO instance = new couponDAO();
+	private static AnalDAO instance = new AnalDAO();
 
-	public static couponDAO getInstance() {
+	public static AnalDAO getInstance() {
 		return instance;
 	}
 

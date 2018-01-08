@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.dao.AnalDAO;
+import com.dao.AnalVO;
 import com.dao.couponDAO;
 
 import net.sf.json.JSONArray;
@@ -36,18 +38,44 @@ public class CouponCon extends HttpServlet {
 		   String interest2 = request.getParameter("interest2");
 		   String interest3 = request.getParameter("interest3");
 		   
-		   String b = request.getParameter("b");
+		   AnalVO vo = new AnalVO(id,age,gender,interest1,interest2,interest3);
+		   AnalDAO dao = AnalDAO.getInstance();
+		   
+		   
 		   //b = URLDecoder.decode(b,"utf-8");
 		   
 		   response.setContentType("text/html; charset=utf-8");
 		   PrintWriter out = response.getWriter();
-		   System.out.println("id"+id);
-		   System.out.println("age"+age);
-		   System.out.println("gender"+gender);
-		   System.out.println("관심사1"+interest1);
-		   System.out.println("관심사2"+interest2);
-		   System.out.println("관심사3"+interest3);
+		   
+		   
+		   
+		   try {
+			   if (id!=null) {
+				   int cnt = dao.insertData(id, age, gender, interest1, interest2, interest3);
+				   
+				   if(cnt>0) {
+					   System.out.println("데이터 삽입 성공");
+				   }else {
+					   System.out.println("데이터 삽입 실패");
+				   }
+			}
+			   
+			   
+		   }catch(Exception e) {
+			   e.printStackTrace();
+		   }
 
+		  
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
 		   if (type == null) {
 			      return;
 			   }else if (type.equals("vision_write")) {
