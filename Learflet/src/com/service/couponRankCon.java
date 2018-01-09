@@ -25,10 +25,18 @@ public class couponRankCon extends HttpServlet {
 		//PrintWriter out = response.getWriter();
 		couponDAO dao = couponDAO.getInstance();
 		ArrayList<couponrankVO> list;
+		PrintWriter out = response.getWriter();
 		try {
 			
 			list = dao.selectAll();
-			System.out.println(list.get(0).getCoupon1());//쿠폰순위불러오기
+			System.out.println(""+list.get(0).getCoupon1());//쿠폰순위불러오기
+			System.out.println(""+list.get(0).getCoupon2());//쿠폰순위불러오기
+			System.out.println(""+list.get(0).getCoupon3());//쿠폰순위불러오기
+			System.out.println(""+list.get(0).getCoupon4());//쿠폰순위불러오기
+			System.out.println(""+list.get(0).getCoupon5());//쿠폰순위불러오기
+			System.out.println(""+list.get(0).getCoupon6());//쿠폰순위불러오기
+			out.println(list.get(0).getCoupon1()+","+list.get(0).getCoupon2()+","+list.get(0).getCoupon3()+","+
+					list.get(0).getCoupon4()+","+list.get(0).getCoupon5()+","+list.get(0).getCoupon6()+",");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
