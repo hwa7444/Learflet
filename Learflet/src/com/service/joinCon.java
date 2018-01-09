@@ -22,8 +22,8 @@ import oracle.jdbc.driver.DBConversion;
 /**
  * Servlet implementation class CouponCon
  */
-@WebServlet("/CouponCon")
-public class AnalCon extends HttpServlet {
+@WebServlet("/joinCon")
+public class joinCon extends HttpServlet {
  
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		   request.setCharacterEncoding("UTF-8");
@@ -55,7 +55,7 @@ public class AnalCon extends HttpServlet {
 				   
 				   if(cnt>0) {
 					   System.out.println("데이터 삽입 성공");
-					   response.sendRedirect("couponCon");
+					   response.sendRedirect("mainCon");
 				   }else {
 					   System.out.println("데이터 삽입 실패");
 				   }
