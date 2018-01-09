@@ -26,7 +26,7 @@ public class mainCon extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		pythonrun py = new pythonrun();
+		pythonRun2 py = new pythonRun2();
 		py.run();
 		PrintWriter out = response.getWriter();
 		request.setCharacterEncoding("utf-8");

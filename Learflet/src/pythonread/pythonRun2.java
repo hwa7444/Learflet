@@ -13,12 +13,16 @@ public class pythonRun2 {
       
       
 
-	String id = "byungwoo";
+	}
+
+public void run() {
+String id = "byungwoo";
     
     StringBuffer cmd = new StringBuffer();
     StringBuffer pout = new StringBuffer();
     
     cmd.append("python C:\\zz.py");
+    cmd.append(" ");
     cmd.append(" ");
     cmd.append(id);
     
@@ -28,12 +32,15 @@ public class pythonRun2 {
        
        System.out.println("java start");
        Runtime r = Runtime.getRuntime();
+       System.out.println("런타임 객체 생성 완료");
        Process p = r.exec(cmd.toString());
-       
+       System.out.println("cmd에 넣기");
        int resultSign = -1;
-          
+       System.out.println("resultSing"+resultSign);
        try{
-          resultSign = p.waitFor();
+    	   System.out.println("resultsign돈다");
+          //resultSign = p.waitFor();
+          System.out.println("resultsign돈다2");
        }catch(Exception e) {
           System.out.println(e);
        }
@@ -59,6 +66,8 @@ public class pythonRun2 {
     } catch (Exception e) {
        System.out.println(e);
     }
+	//values('%s','%s','%s','%s','%s','%s')" %(scorelist[0][0],scorelist[1][0],scorelist[2][0],scorelist[3][0],scorelist[4][0],scorelist[5][0]
+
 	
 }
 
