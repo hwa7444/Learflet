@@ -8,6 +8,8 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Properties;
 
+
+
 public class couponDAO {
 	private Connection conn;
 	private ResultSet rs;
@@ -23,7 +25,7 @@ public class couponDAO {
 	public void getConn() throws Exception {
 
 		// 1.JDBC 업로드
-		InputStream in = (this.getClass().getResourceAsStream("../../../../db.properties"));
+		InputStream in = (this.getClass().getResourceAsStream("db.properties"));
 		// 현재 작업하고 있는 자바파일의 클래스파일을 기준으로 db.properties를 읽어오겠다.
 
 		Properties p = new Properties();
@@ -74,9 +76,28 @@ public class couponDAO {
 		return cnt;
 	}
 
-	public void insert() {
-		
-		
+	public ArrayList<couponrankVO> selectAll() throws Exception { // 게시물 불러들이기
+		getConn();
+
+		ArrayList<couponrankVO> tmpList = new ArrayList<couponrankVO>();
+
+		System.out.println("select작동");
+
+		// 모든 검색 sql 작성
+		pst = conn.prepareStatement("select * from couponrank");
+
+		rs = pst.executeQuery();
+
+		while (rs.next()) {
+			System.out.println(rs.getString(2));
+			tmpList.add(new couponrankVO(rs.getString(1), // 1위 부터 7위까지
+					rs.getString(2), rs.getString(3), 
+					rs.getString(4), rs.getString(5), 
+					rs.getString(6))); 
+		}
+		close();
+
+		return tmpList;
 	}
 }
 
