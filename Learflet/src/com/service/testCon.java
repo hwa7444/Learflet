@@ -22,8 +22,8 @@ import oracle.jdbc.driver.DBConversion;
 /**
  * Servlet implementation class CouponCon
  */
-@WebServlet("/joinCon")
-public class joinCon extends HttpServlet {
+@WebServlet("/testCon")
+public class testCon extends HttpServlet {
  
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		   request.setCharacterEncoding("UTF-8");
