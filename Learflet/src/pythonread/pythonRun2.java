@@ -12,9 +12,7 @@ public class pythonRun2 {
       
       
       
-   }
 
-public void run() {
 	String id = "byungwoo";
     
     StringBuffer cmd = new StringBuffer();

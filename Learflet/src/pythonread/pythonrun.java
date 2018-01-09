@@ -9,12 +9,17 @@ public class pythonrun {
 	   
 	   public static void main(String args[]) throws IOException {
 	      
-		
+	   }
+	 
 		   
-	      try {
+		   
+	      
+	public void run() {
+		// TODO Auto-generated method stub
+		try {
 	         Runtime r = Runtime.getRuntime();
 	         Process p = r.exec(
-	               "cmd /c "+python35+" D://zz.py");
+	               "cmd /c python C://zz.py byungwoo");
 	               
 	         BufferedReader bfr = new BufferedReader(new InputStreamReader(p.getInputStream()));
 
@@ -31,3 +36,4 @@ public class pythonrun {
 	      }
 	   }
 	}
+	

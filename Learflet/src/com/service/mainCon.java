@@ -16,6 +16,7 @@ import com.dao.couponDAO;
 import com.dao.couponrankVO;
 
 import pythonread.pythonRun2;
+import pythonread.pythonrun;
 
 /**
  * Servlet implementation class mainCon
@@ -25,7 +26,7 @@ public class mainCon extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		pythonRun2 py = new pythonRun2();
+		pythonrun py = new pythonrun();
 		py.run();
 		PrintWriter out = response.getWriter();
 		request.setCharacterEncoding("utf-8");
