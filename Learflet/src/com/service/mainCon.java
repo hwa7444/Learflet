@@ -25,40 +25,41 @@ public class mainCon extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
+		pythonRun2 py = new pythonRun2();
+		py.run();
 		PrintWriter out = response.getWriter();
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("text/html; charset=utf-8");
-
 		String log = request.getParameter("join");
 		System.out.println("로그값"+log);
 		String login = request.getParameter("login");
 		System.out.println("로그인아이디"+login);
 		
 		
-		
-		if(login !=null) {
-			String id = request.getParameter("id");
-			System.out.println("분석페이지");
-			//request.getParameter("log");
-			couponDAO dao = couponDAO.getInstance();
-			ArrayList<couponrankVO> list;
-			pythonRun2 py = new pythonRun2();
-			py.run();
-			
-			try {
-				list = dao.selectAll();
+		//if (login!=null) {
+			if(login!=null) {
+				String id = request.getParameter("id");
+				System.out.println("분석페이지");
+				//request.getParameter("log");
+				couponDAO dao = couponDAO.getInstance();
+				ArrayList<couponrankVO> list;
 				
-				System.out.println(list.get(0).getCoupon1());
-				System.out.println(list.get(0).getCoupon2());
-				out.println(list.get(0).getCoupon1() + "," + list.get(0).getCoupon2() + ","
-						+ list.get(0).getCoupon3() + "," + list.get(0).getCoupon4());
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				
+				try {
+					list = dao.selectAll();
+					
+					System.out.println(list.get(0).getCoupon1());
+					System.out.println(list.get(0).getCoupon2());
+					out.println(list.get(0).getCoupon1() + "," + list.get(0).getCoupon2() + ","
+							+ list.get(0).getCoupon3() + "," + list.get(0).getCoupon4());
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				// 로그인 끝
 			}
-			// 로그인 끝
-		}
+		//}
+		
 		
 		
 		
