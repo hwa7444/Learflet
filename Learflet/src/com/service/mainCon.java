@@ -26,8 +26,7 @@ public class mainCon extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		pythonRun2 py = new pythonRun2();
-		py.run();
+		
 		PrintWriter out = response.getWriter();
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("text/html; charset=utf-8");
@@ -39,7 +38,13 @@ public class mainCon extends HttpServlet {
 		
 		//if (login!=null) {
 			if(login!=null) {
+				pythonRun2 py = new pythonRun2();
 				String id = request.getParameter("id");
+				System.out.println("아이디값"+id);
+				py.id="b";
+				py.run();
+				
+				
 				System.out.println("분석페이지");
 				//request.getParameter("log");
 				couponDAO dao = couponDAO.getInstance();
@@ -52,7 +57,7 @@ public class mainCon extends HttpServlet {
 					System.out.println(list.get(0).getCoupon1());
 					System.out.println(list.get(0).getCoupon2());
 					out.println(list.get(0).getCoupon1() + "," + list.get(0).getCoupon2() + ","
-							+ list.get(0).getCoupon3() + "," + list.get(0).getCoupon4());
+							+ list.get(0).getCoupon3() + "," + list.get(0).getCoupon4()+","+list.get(0).getCoupon5()+","+list.get(0).getCoupon6());
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

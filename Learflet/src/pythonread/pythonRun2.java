@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class pythonRun2 {
+	public String id;
    public static void main(String[] args) throws IOException, InterruptedException {
       
 	   
@@ -16,8 +17,8 @@ public class pythonRun2 {
 	}
 
 public void run() {
-String id = "byungwoo";
-    
+	
+	
     StringBuffer cmd = new StringBuffer();
     StringBuffer pout = new StringBuffer();
     
